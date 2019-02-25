@@ -1,0 +1,78 @@
+Docker Tutorial
+
+
+** Pre-requisites:
+	Docker requires 'OverlayFS - Union capable file system' hence MAC OS may not be supported
+	Get Docker Hub account
+
+** Use 'Docker Quick Start Terminal' in windows to launch MINGW shell.
+** Docker uses Oracle Virtual Box
+** Docker is good for fastracking the server provisioning which is required for DevOps and Agile
+
+
+Docker Terminologies:
+
+** Docker Host: The Machine or VM on which Docker Engine Runs
+** Docker Engine
+** Docker Daemon runs in the Docker Host
+** Docker CLI
+** Docker Hub or Docker Registry: Library of Images. It can be Public or Private. It contains the standard read only images of the softwares
+** Docker Images: Docker images are read only template for creating Docker Container. Docker Images are called DockerFiles which are written in Plain Text.
+** Docker Container: Container is Runnable instance of Image and is ISOLATED and SECURE platform running the application (viz. Web server, app server etc.). Each Container has ID. 
+** Docker Service
+** Docke Swarm: Collection of Docker Nodes
+** Docker Tag: Every Image has a Name, tag and Image ID. List the docker by using the command "docker images"
+
+URL Website to grab Images: https://hub.docker.com
+
+
+Docker Commands in CLI:
+
+** To run a Docker Contatiner: 
+Docker run 
+
+** To Pull Tomcat image:
+docker pull tomcat:8
+
+** Docker Help:
+docker run --help 
+
+** Docker Run image:
+docker run -i -t ubuntu:18.04 /bin/bash
+
+** List all the available containers :
+docker ps -a 
+
+** Remove a perticular container using the container id:
+docker rm <container id> 
+
+
+** To check the IP of the created Docker Container and Command for Get all runnning Containers:
+docker ps 
+docker inspect <container id> # this will give you info in the form of JSON
+
+
+** How to make Containers communicate within themself: We can create own Docker network:
+
+docker network ls
+docker network inspect 
+
+
+** How to move the Local Docker image to Docker Registry: (https://docs.docker.com/registry/deploying/ )
+docker tag MyDockerIgameTagName rswarnkar/mywebapp 
+docker push rswarnkar/mywebapp 
+docker run -it -p 9000:8080 mytomcatwebserverapp ampatil/mywebapp
+
+** How to make image from own custom container:
+
+
+
+Docker Excercise: 
+
+1. Build your own PaaS application:
+Step 1: Create two containers: alpine-1 and 2
+Step 2: run then in Background.
+Step 3: docker attach alpine-1
+
+
+
